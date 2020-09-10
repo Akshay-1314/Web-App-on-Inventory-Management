@@ -71,7 +71,14 @@
         .contactSubmit:hover{
             transform: scale(1.1,1.1);
         }
-        
+        #loading{
+              position: fixed;
+              width: 100%;
+              height: 100vh;
+              background:#1b1b1b url('https://media1.giphy.com/media/1n6FOu976kb1yr5uW5/200.webp?cid=ecf05e47tjfa8axantcfgypr4iffntf7qg4a4zbqevhzf8ch&rid=200.webp') no-repeat center center;
+              background-size:200px 200px;	
+              z-index: 99999;
+        }
         @media only screen and (max-width: 768px){
             .section1Margin{
                 margin-top: 30%;
@@ -199,8 +206,8 @@
         }
     </style>
 </head>
-<body>
-
+<body onload="myFunction()">
+    <div id="loading" class="text-center"></div>
     <!-- Nav-Bar -->
     <header>
         <nav class="navbar navbar-expand-md navbar-light fixed-top" id="navbar">
@@ -472,6 +479,13 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script>
+        //JavaScript
+        //pre-loader
+        var preloader = document.getElementById("loading");
+        function myFunction(){
+          preloader.style.display = 'none';
+        };
+
         //jQuery
         // Nav-Bar change on scroll
         $(window).scroll(function(){
