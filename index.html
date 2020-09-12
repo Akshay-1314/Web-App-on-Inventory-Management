@@ -55,13 +55,25 @@
             box-shadow: 2px 2px 2px 2px #808080;
             border-radius: 50%;
         }
+        .carousel-indicators .active{
+            transform: scale(1.7,1.7);
+            background-color: #e2e276;
+            transition: all 0.5s;
+        }
+        .carousel-indicators li{
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            margin-left: 10px;
+        }
         .contact{
             background: url('https://i.imgur.com/R3cpQ9R.gif');
             background-size: cover;
         }
         .contactForm{
-            background: #f9f7d9;
             border-radius: 0.5em;
+            border: 2px solid #fff;
+            box-shadow: 1px 1px 10px 1px #fff;;
         }
         .contactSubmit{
             font-weight: bold;
@@ -71,6 +83,8 @@
         .contactSubmit:hover{
             transform: scale(1.1,1.1);
         }
+
+        /* pre-loader */
         #loading{
               position: fixed;
               width: 100%;
@@ -79,6 +93,35 @@
               background-size:200px 200px;	
               z-index: 99999;
         }
+
+        /* contact-form input effect */
+        #name,#email,#phone,#message{
+            border-radius: 0.8em;
+            box-shadow: 1px 1px 10px 1px #00f;
+        }
+
+        /* contact-form input effect on focus */
+        #name:focus,#email:focus,#phone:focus,#message:focus{
+            box-shadow: 1px 1px;
+        }
+
+        /* move up arrow icon */
+        .scroll-top{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 999;
+            display: block;
+            height: 68px;
+            width: 68px;
+        }
+        .scroll-top:hover{
+            cursor: pointer;
+        }
+        .move-up{
+            display: none;
+        }
+
         @media only screen and (max-width: 768px){
             .section1Margin{
                 margin-top: 30%;
@@ -92,11 +135,6 @@
             }
             .signUp{
                 margin-bottom: 30px;
-            }
-            .carousel-item img{
-                height:400px;
-                width:60vw;
-                
             }
             .carousel-control-prev-icon, .carousel-control-next-icon {
                 height: 30px;
@@ -151,11 +189,6 @@
             .signup:hover{
                 transform: scale(1.1,1.1);
             }
-            .carousel-item img{
-                height:600px;
-                width:40vw;
-            }
-            
             #section-3{
                 background: #ECE9E6;  /* fallback for old browsers */
                 background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
@@ -181,11 +214,6 @@
             }
         }
         @media only screen and (max-width: 600px){
-            .carousel-item img{
-                height:300px;
-                width:80vw;
-                
-            }
             .carousel-control-prev-icon, .carousel-control-next-icon {
                 height: 30px;
                 width: 30px;
@@ -198,6 +226,10 @@
             .heading-1,.heading-2{
                 text-align: center;
             }
+            .scroll-top{
+                width: 50px;
+                height: 50px;
+            }
         }
         @media only screen and (max-width: 1015px){
             .emailSideText{
@@ -207,7 +239,13 @@
     </style>
 </head>
 <body>
+    <!-- pre-loader -->
     <div id="loading" class="text-center"></div>
+
+    <img class="scroll-top move-up scrolltop img-fluid" src="https://daks2k3a4ib2z.cloudfront.net/591b0c3a951d120c3f468711/593a0036cd8a6e16f1869dca_icon.svg" />
+    
+    
+    <!-- <img class="scroll-top move-up" src="https://img.icons8.com/cute-clipart/64/000000/up-squared.png"/> -->
     <!-- Nav-Bar -->
     <header>
         <nav class="navbar navbar-expand-md navbar-light fixed-top" id="navbar">
@@ -297,7 +335,7 @@
                                 <div class="input-group-prepend">
                                   <div class="input-group-text">Username</div>
                                 </div>
-                                <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                                <input type="email" class="form-control" id="login-email" placeholder="Enter Email">
                               </div>
                             </div>
                             <div class="form-group">
@@ -396,21 +434,21 @@
               </ul>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="https://globaledgeme.com/wp-content/uploads/2020/04/Inventory-Management-02.png" alt="project">
+                  <img src="https://www.assetinfinity.com/blog/wp-content/uploads/2019/09/Inventory-management-system-objectives.png" alt="project" class="img-fluid">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>Sample Heading 1</h5>
                     <p>This is a sample text</p>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="https://xlixinfotech.com/wp-content/uploads/2020/01/Distribution-Management-Software.png" alt="project">
+                  <img src="https://www.assetinfinity.com/blog/wp-content/uploads/2019/09/Functions-of-Inventory-Management-Software.png" alt="project" class="img-fluid">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>Sample Heading 2</h5>
                     <p>This is a sample text</p>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/142470042/original/f65df2e449c9a100bc6036d3baa3ae6f7087193a/do-inventory-warehouse-pos-system.png" alt="project">
+                  <img src="https://www.mediafrontier.ch/wp-content/uploads/2016/12/mf-blog-header-social-media-1280x550.png" alt="project" class="img-fluid">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>Sample Heading 3</h5>
                     <p>This is a sample text</p>
@@ -444,23 +482,23 @@
                     <div class="row text-dark mt-2">
                         <div class="col contactForm">
                             <form>
-                                <div class="form-group p-2 m-2">
-                                    <label for="name">Full Name</label>
+                                <div class="form-group">
+                                    <label for="name" class="text-white">Full Name</label>
                                     <input type="text" class="form-control" id="name" placeholder="Enter Full Name">
                                 </div>
-                                <div class="form-group p-2 m-2">
-                                    <label for="email">Email address</label>
+                                <div class="form-group">
+                                    <label for="email" class="text-white">Email address</label>
                                     <input type="email" class="form-control" id="email" placeholder="Enter Email">
                                 </div>
-                                <div class="form-group p-2 m-2">
-                                    <label for="phone">Mobile Number</label>
+                                <div class="form-group">
+                                    <label for="phone" class="text-white">Mobile Number</label>
                                     <input type="tel" class="form-control" id="phone" placeholder="Enter your number">
                                 </div>
-                                <div class="form-group p-2 m-2">
-                                    <label for="message">Enter your message here</label>
+                                <div class="form-group">
+                                    <label for="message" class="text-white">Enter your message here</label>
                                     <textarea class="form-control" id="message" placeholder="Type here..." rows="3"></textarea>
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center mt-4">
                                     <button type="submit" class="btn w-50 contactSubmit">Send</button>
                                 </div>
                                 <br>
@@ -473,23 +511,42 @@
     </footer>
     <!-- End of Footer -->
     
+    <!-- Tippy.js cdn's for tooltips -->
+    <!-- Development -->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    <!-- Production -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
 
     <!-- Bootstrap cdn's for JavaScript and jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script>
         //jQuery
         
         //pre-loader
         $(window).on("load",function(){
-            $("#loading").css("display","none");
+            $("#loading").fadeOut();
         });
 
-        // Nav-Bar change on scroll
+        
         $(document).ready(function(){
             $(window).scroll(function(){
+                // Nav-Bar change on scroll
                 $('nav').toggleClass('nav-addBackground', $(this).scrollTop() > 50);
+                
+                // scroll-top icon toggle
+                $(".scroll-top").toggleClass("move-up",$(this).scrollTop() < 500);
+            });
+            
+            // move to top of the window on click
+            $(".scroll-top").click(function() {
+                $("html, body").animate({ 
+                    scrollTop: 0 
+                },"slow");
             });
 
             // Carousel interval
@@ -497,6 +554,14 @@
                 interval: 5000
             });
         });
+        
+        // tooltip for scroll to top using tippy.js
+        tippy('.scrolltop', {
+                content: 'Scroll to Top',
+                touch: false,
+                zIndex: 9999,
+        });
+        
     </script>
 </body>
 </html>
